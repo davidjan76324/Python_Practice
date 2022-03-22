@@ -6,7 +6,9 @@ print(name_dict)  # {'Name': 'Davidjan'}
 
 
 #-- class(類別)
-#方法(Method)可以共享, 屬性(Attribute)無法共享
+# 方法(Method)可以共享, 屬性(Attribute)無法共享
+# 屬性：就是存在物件實例中的變數
+# __init__:可以定義在類別中，用於初始化物件實例
 class Athlete:
     def __init__(self, value: str):  # self:可以指出所要處理的是哪個物件實例資料
         self.thing = value
