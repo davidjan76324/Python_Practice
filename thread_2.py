@@ -15,8 +15,10 @@ class myThread(threading.Thread):
 
     def run(self):
         print("开始线程：" + self.name)
+        #threadLock.acquire()  # 获取锁，用于线程同步
         print_time(self.name, self.counter, 5)
         print("退出线程：" + self.name)
+        #threadLock.release()  # 释放锁，开启下一个线程
 
 
 def print_time(threadName, delay, counter):
@@ -24,6 +26,12 @@ def print_time(threadName, delay, counter):
         time.sleep(delay)
         print("{0}: {1}".format(threadName, time.ctime(time.time())))
         counter -= 1
+
+
+#对于那些需要每次只允许一个线程操作的数据，可以将其操作放到 acquire 和 release 方法之间。
+#多线程的优势在于可以同时运行多个任务（至少感觉起来是这样）。但是当线程需要共享数据时，可能存在数据不同步的问题。
+#threadLock = threading.Lock()
+
 
 #創建新的thread
 thread1 = myThread(1,"Thread-1", 1)

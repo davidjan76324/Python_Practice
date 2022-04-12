@@ -8,7 +8,7 @@ try:
 except Exception as ex:  # 錯誤即會跳出
     print("--- Error Message: {0}".format(ex))
 finally:  # 總是會執行區域！
-    if 'man_file' in locals():
+    if 'man_file' in locals(): # locals()代表：會回傳定義於當前有效範圍的一群變數
         man_file.close()  # 不管怎樣，都會關閉檔案
 
 
